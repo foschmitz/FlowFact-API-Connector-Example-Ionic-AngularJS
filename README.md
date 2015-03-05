@@ -13,3 +13,11 @@ Once the above prerequesites are installed, go to project folder and start the e
 or 
 
     ionic serve --lab
+
+To prevent cors issue, ionic serve requires "Ionic Proxy" to be used (see ionic.project):
+
+    .constant("APISERVER", "http://localhost:8100/com.flowfact.server/api")
+
+For live deployment change the above line to the desired API server, i.e.:
+
+    .constant("APISERVER", "https://flowfactapi.flowfact.com/com.flowfact.server/api")
