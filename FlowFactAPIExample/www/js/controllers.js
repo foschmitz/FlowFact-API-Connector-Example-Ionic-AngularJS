@@ -41,13 +41,19 @@ angular.module('starter.controllers', [])
 		$scope.modal.show();
 	}
 	
+	$scope.doRefresh = function() {
+		console.log("refreshing");
+		contactsService.getContacts().then(function(contacts){
+			console.log("List refreshed");
+			$scope.contacts = contacts;
+			$scope.$broadcast('scroll.refreshComplete');
+		})
+	}
+	
 	$scope.saveAndCloseModal = function() {
 		contactsService.createNew($scope.newcontact).then(function(){
 			console.log("Contact saved");
-			contactsService.getContacts().then(function(contacts){
-				console.log("List refreshed");
-				$scope.contacts = contacts;
-			})
+			$scope.doRefresh();
 		});
 		$scope.newcontact = {};
 		$scope.modal.hide();

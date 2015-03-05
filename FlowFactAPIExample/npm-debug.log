@@ -1,0 +1,145 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'corsproxy' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'corsproxy', null ]
+5 verbose cache add name=undefined spec="corsproxy" args=["corsproxy",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'corsproxy',
+6 verbose parsed url   path: 'corsproxy',
+6 verbose parsed url   href: 'corsproxy' }
+7 silly lockFile 8241ebf8-corsproxy corsproxy
+8 verbose lock corsproxy /Users/fffrankschmitz/.npm/8241ebf8-corsproxy.lock
+9 silly lockFile 8241ebf8-corsproxy corsproxy
+10 silly lockFile 8241ebf8-corsproxy corsproxy
+11 verbose addNamed [ 'corsproxy', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 34a22849-corsproxy corsproxy@
+14 verbose lock corsproxy@ /Users/fffrankschmitz/.npm/34a22849-corsproxy.lock
+15 silly addNameRange { name: 'corsproxy', range: '*', hasData: false }
+16 verbose request where is /corsproxy
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id f44b87e2ac864ce4
+19 verbose url raw /corsproxy
+20 verbose url resolving [ 'https://registry.npmjs.org/', './corsproxy' ]
+21 verbose url resolved https://registry.npmjs.org/corsproxy
+22 verbose request where is https://registry.npmjs.org/corsproxy
+23 info trying registry request attempt 1 at 15:00:46
+24 http GET https://registry.npmjs.org/corsproxy
+25 http 200 https://registry.npmjs.org/corsproxy
+26 silly registry.get cb [ 200,
+26 silly registry.get   { date: 'Thu, 05 Mar 2015 14:00:47 GMT',
+26 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 silly registry.get     etag: '"4912DW4NQ6H7DPMB4E0QNRWW3"',
+26 silly registry.get     'content-type': 'application/json',
+26 silly registry.get     'cache-control': 'max-age=60',
+26 silly registry.get     'content-length': '18281',
+26 silly registry.get     'accept-ranges': 'bytes',
+26 silly registry.get     via: '1.1 varnish',
+26 silly registry.get     age: '0',
+26 silly registry.get     'x-served-by': 'cache-ams4125-AMS',
+26 silly registry.get     'x-cache': 'MISS',
+26 silly registry.get     'x-cache-hits': '0',
+26 silly registry.get     'x-timer': 'S1425564047.042792,VS0,VE89',
+26 silly registry.get     vary: 'Accept',
+26 silly registry.get     'keep-alive': 'timeout=10, max=50',
+26 silly registry.get     connection: 'Keep-Alive' } ]
+27 silly addNameRange number 2 { name: 'corsproxy', range: '*', hasData: true }
+28 silly addNameRange versions [ 'corsproxy',
+28 silly addNameRange   [ '0.1.0',
+28 silly addNameRange     '0.2.0',
+28 silly addNameRange     '0.2.9',
+28 silly addNameRange     '0.2.10',
+28 silly addNameRange     '0.2.11',
+28 silly addNameRange     '0.2.12',
+28 silly addNameRange     '0.2.13',
+28 silly addNameRange     '0.2.14' ] ]
+29 verbose addNamed [ 'corsproxy', '0.2.14' ]
+30 verbose addNamed [ '0.2.14', '0.2.14' ]
+31 silly lockFile ef70482f-corsproxy-0-2-14 corsproxy@0.2.14
+32 verbose lock corsproxy@0.2.14 /Users/fffrankschmitz/.npm/ef70482f-corsproxy-0-2-14.lock
+33 silly lockFile e0f28b2f-g-corsproxy-corsproxy-0-2-14-tgz https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz
+34 verbose lock https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz /Users/fffrankschmitz/.npm/e0f28b2f-g-corsproxy-corsproxy-0-2-14-tgz.lock
+35 verbose addRemoteTarball [ 'https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz',
+35 verbose addRemoteTarball   'e35af98c25ecbe37eb95ff64f4d495b5f898cd63' ]
+36 info retry fetch attempt 1 at 15:00:47
+37 verbose fetch to= /var/folders/r_/frmzdg6x7g7dw3d25zpgl8tr0000gv/T/npm-21872-QnTKrZBt/registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz
+38 http GET https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz
+39 http 200 https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz
+40 silly lockFile e0f28b2f-g-corsproxy-corsproxy-0-2-14-tgz https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz
+41 silly lockFile e0f28b2f-g-corsproxy-corsproxy-0-2-14-tgz https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz
+42 silly lockFile ef70482f-corsproxy-0-2-14 corsproxy@0.2.14
+43 silly lockFile ef70482f-corsproxy-0-2-14 corsproxy@0.2.14
+44 silly lockFile 34a22849-corsproxy corsproxy@
+45 silly lockFile 34a22849-corsproxy corsproxy@
+46 silly resolved [ { name: 'corsproxy',
+46 silly resolved     description: 'standalone CORS proxy and library for your convenience',
+46 silly resolved     version: '0.2.14',
+46 silly resolved     main: './lib/corsproxy.js',
+46 silly resolved     author: { name: 'Gregor Martynus', email: 'gregor@martynus.net' },
+46 silly resolved     contributors: { name: 'Jan Lehnardt', email: 'jan@apache.org' },
+46 silly resolved     dependencies: { 'http-proxy': '~0.10' },
+46 silly resolved     bin: { corsproxy: './bin/index.js' },
+46 silly resolved     engines: { node: '>=0.6.x', npm: '>=1.1.x' },
+46 silly resolved     repository: { type: 'git', url: 'https://github.com/gr2m/CORS-Proxy' },
+46 silly resolved     readme: '## Installation\n\nAs a standalone tool:\n\n    $ npm install -g corsproxy\n\nAs a dependency:\n\n    $ npm install corsproxy\n\n\n## Running\n\nStandalone:\n\n    $ corsproxy\n    CORS Proxy started on localhost:9292\n\nStandalone with custom host/port:\n\n    $ corsproxy 0.0.0.0 1234\n    CORS Proxy started on 0.0.0.0:1234\n\nAs a dependency:\n\n    var cors_proxy = require("corsproxy");\n    var http_proxy = require("http-proxy");\n    http_proxy.createServer(cors_proxy).listen(1234);\n\nWith custom target:\n\n    var cors_proxy = require("corsproxy");\n    var http_proxy = require("http-proxy");\n    cors_proxy.options = {\n         target: "http://0.0.0.0:5984"\n    };\n    http_proxy.createServer(cors_proxy).listen(1234);\n\n\n## Usage\n\nThe cors proxy will start at http://localhost:9292. To access another domain, use the domain name (including port) as the first folder, e.g.\n\n    http://localhost:9292/localhost:3000/sign_in\n    http://localhost:9292/my.domain.com/path/to/resource\n    etc etc\n',
+46 silly resolved     readmeFilename: 'README.md',
+46 silly resolved     bugs: { url: 'https://github.com/gr2m/CORS-Proxy/issues' },
+46 silly resolved     homepage: 'https://github.com/gr2m/CORS-Proxy',
+46 silly resolved     _id: 'corsproxy@0.2.14',
+46 silly resolved     dist:
+46 silly resolved      { shasum: 'e35af98c25ecbe37eb95ff64f4d495b5f898cd63',
+46 silly resolved        tarball: 'http://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz' },
+46 silly resolved     _from: 'corsproxy@',
+46 silly resolved     _npmVersion: '1.3.14',
+46 silly resolved     _npmUser: { name: 'gr2m', email: 'gregor@martynus.net' },
+46 silly resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object] ],
+46 silly resolved     directories: {},
+46 silly resolved     _shasum: 'e35af98c25ecbe37eb95ff64f4d495b5f898cd63',
+46 silly resolved     _resolved: 'https://registry.npmjs.org/corsproxy/-/corsproxy-0.2.14.tgz' } ]
+47 info install corsproxy@0.2.14 into /usr/local/lib
+48 info installOne corsproxy@0.2.14
+49 verbose lib/node_modules/corsproxy unbuild
+50 verbose tar unpack /Users/fffrankschmitz/.npm/corsproxy/0.2.14/package.tgz
+51 silly lockFile 1266358b-local-lib-node-modules-corsproxy tar:///usr/local/lib/node_modules/corsproxy
+52 verbose lock tar:///usr/local/lib/node_modules/corsproxy /Users/fffrankschmitz/.npm/1266358b-local-lib-node-modules-corsproxy.lock
+53 silly lockFile ed6d51b3-npm-corsproxy-0-2-14-package-tgz tar:///Users/fffrankschmitz/.npm/corsproxy/0.2.14/package.tgz
+54 verbose lock tar:///Users/fffrankschmitz/.npm/corsproxy/0.2.14/package.tgz /Users/fffrankschmitz/.npm/ed6d51b3-npm-corsproxy-0-2-14-package-tgz.lock
+55 silly gunzTarPerm modes [ '755', '644' ]
+56 error Error: EACCES, mkdir '/usr/local/lib/node_modules/corsproxy'
+56 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/corsproxy']
+56 error   errno: 3,
+56 error   code: 'EACCES',
+56 error   path: '/usr/local/lib/node_modules/corsproxy',
+56 error   fstream_type: 'Directory',
+56 error   fstream_path: '/usr/local/lib/node_modules/corsproxy',
+56 error   fstream_class: 'DirWriter',
+56 error   fstream_stack:
+56 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+56 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+56 error      'Object.oncomplete (fs.js:107:15)' ] }
+57 error Please try running this command again as root/Administrator.
+58 error System Darwin 14.1.0
+59 error command "node" "/usr/local/bin/npm" "install" "-g" "corsproxy"
+60 error cwd /Users/fffrankschmitz/git/Ionic-FlowFact-API-Connector-Example-AngularJS-/FlowFactAPIExample
+61 error node -v v0.10.33
+62 error npm -v 1.4.28
+63 error path /usr/local/lib/node_modules/corsproxy
+64 error fstream_path /usr/local/lib/node_modules/corsproxy
+65 error fstream_type Directory
+66 error fstream_class DirWriter
+67 error code EACCES
+68 error errno 3
+69 error stack Error: EACCES, mkdir '/usr/local/lib/node_modules/corsproxy'
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+70 error fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+70 error fstream_stack Object.oncomplete (fs.js:107:15)
+71 verbose exit [ 3, true ]

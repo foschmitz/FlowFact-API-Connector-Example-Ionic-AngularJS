@@ -11,13 +11,13 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 			
 			transferObject.value = contact;
 			
-			console.log(transferObject);
+			console.log(JSON.stringify(transferObject));
 			
 			var deferred = $q.defer();
 			
 			if (accountService.getAccount().username) {
 
-				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().username + "/contacts");
+				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().id + "/contacts");
 
 				console.log(contactsUrl);
 
@@ -26,11 +26,11 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 					url : contactsUrl,
 					data : contact
 				}).success(function(status) {
-					console.log(status, error);
+					console.log(status);
 					deferred.resolve();
 					
-				}).error(function(status, error) {
-					console.log(status, error);
+				}).error(function(status) {
+					console.log(status);
 					deferred.reject();
 				});
 
@@ -49,7 +49,7 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 			
 			if (accountService.getAccount().username) {
 
-				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().username + "/contacts");
+				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().id + "/contacts");
 
 				console.log(contactsUrl);
 
@@ -115,11 +115,12 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 			}).success(function(data) {
 				
 				if (data.value && data.value.name) {
-					console.log(data.value.name);
+					console.log("----USERDATA----");
+					console.log(data);
 					if (data.value.name === loginData.username) {
 						account.contractid = loginData.contractid;
 						account.username = loginData.username;
-
+						account.id = data.value.id;
 						deferred.resolve();
 					}
 				} else {
