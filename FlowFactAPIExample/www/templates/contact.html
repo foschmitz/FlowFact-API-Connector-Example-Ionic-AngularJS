@@ -1,0 +1,29 @@
+<ion-view view-title="{{contact.name.company}} {{contact.name.lastname}}">
+  <ion-content>
+   <div class="item item-avatar">
+    <img src="dummy_avatar.png">
+    <h2>{{contact.identifier}} <span ng-show="contact.company"><b>{{contact.company}}</b></span><span ng-show="contact.company && (contact.name.firstname || contact.name.lastname)">, </span><span ng-show="contact.name.firstname || contact.name.lastname"><span ng-show="contact.salutation.short">{{contact.salutation.short}} </span>{{contact.name.firstname}} {{contact.name.lastname}}</span></h2>
+    <p>{{contact.created | date}}</p>
+  </div>
+
+  <div class="item item-body" ng-show="contact.note">
+   {{contact.note}}
+  </div>
+
+  <div class="item tabs tabs-secondary tabs-icon-left">
+    <a class="tab-item" href="#">
+      <i class="icon ion-thumbsup"></i>
+      Like
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-chatbox"></i>
+      Comment
+    </a>
+    <a class="tab-item" href="#">
+      <i class="icon ion-share"></i>
+      Share
+    </a>
+  </div>
+	
+  </ion-content>
+</ion-view>

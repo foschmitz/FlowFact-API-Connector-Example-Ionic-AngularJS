@@ -1,0 +1,10 @@
+<ion-view view-title="Contacts">
+  <ion-content>
+	<span ng-if="contacts.length==0">Please login</span>
+    <ion-list>
+      <ion-item ng-repeat="contact in contacts" href="#/app/contacts/{{contact.id}}">
+      	<span ng-show="contact.company"><b>{{contact.company}}</b></span><span ng-show="contact.company && (contact.name.firstname || contact.name.lastname)">, </span><span ng-show="contact.name.firstname || contact.name.lastname"><span ng-show="contact.salutation.short">{{contact.salutation.short}} </span>{{contact.name.firstname}} {{contact.name.lastname}}</span>
+	  </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

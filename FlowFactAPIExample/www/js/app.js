@@ -4,7 +4,11 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+
+// FFAPI Requires CORS Proxy
+//.constant("APISERVER", "https://flowfactapi.flowfact.com/com.flowfact.server/api")
+.constant("APISERVER", "http://localhost:8100/com.flowfact.server/api")
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,43 +33,45 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
-
-  .state('app.search', {
-    url: "/search",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
-      }
-    }
-  })
-
-  .state('app.browse', {
-    url: "/browse",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
-      }
-    }
-  })
-    .state('app.playlists', {
-      url: "/playlists",
+.state('app.login', {
+      url: "/login",
       views: {
         'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
+          templateUrl: "templates/login.html",
+          controller: 'AppCtrl',
+          cache : false,
         }
       }
     })
-
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+    .state('app.contacts', {
+      url: "/contacts",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/contacts.html",
+          controller: 'contactsCtrl',
+          cache : false,
+          resolve : {
+				contacts : function(contactsService) {
+					return contactsService.getContacts()
+				}
+			}
+        }
+      }
+    })
+  .state('app.contact', {
+    url: "/contacts/:contactId",
     views: {
       'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+        templateUrl: "templates/contact.html",
+        controller: 'contactCtrl',
+        resolve : {
+			contact : function($stateParams, contactsService) {
+				return contactsService.getContact($stateParams.contactId)
+			}
+		}
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/login');
 });

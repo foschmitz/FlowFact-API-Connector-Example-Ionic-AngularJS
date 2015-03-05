@@ -1,4 +1,10 @@
 {
   "name": "FlowFactAPIExample",
-  "app_id": ""
+  "app_id": "",
+  "proxies": [
+    {
+      "path": "/com.flowfact.server/api",
+      "proxyUrl": "https://flowfactapi.flowfact.com/com.flowfact.server/api"
+    }
+  ]
 }
