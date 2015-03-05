@@ -1,4 +1,9 @@
 <ion-view view-title="Contacts">
+<ion-nav-buttons side="right">
+<button class="button button-icon button-large" title="New" ng-click="newContact()">
+	<i class="ion-plus"></i>
+</button>
+ </ion-nav-buttons>
   <ion-content>
 	<span ng-if="contacts.length==0">Please login</span>
     <ion-list>

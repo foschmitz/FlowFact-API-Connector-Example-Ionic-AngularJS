@@ -6,13 +6,12 @@ angular.module('starter.controllers', [])
 			$scope.loginData = {
 				contractid : "322322",
 				username : "Klaus Erfolg",
-				password : "123456"
+				password : ""
 			};
 
 			// Perform the login action when the user submits the login form
 			$scope.doLogin = function() {
 				accountService.login($scope.loginData).then(function(successful){
-					console.log("promise returned true");
 					$state.go("app.contacts", {}, {
 						reload : true
 					});
@@ -21,13 +20,50 @@ angular.module('starter.controllers', [])
 			};
 		})
 
-.controller('contactsCtrl', function($scope, contacts) {
-	console.log("go to controller");
+.controller('contactsCtrl', function($scope, $ionicModal, contactsService, contacts) {
+
 	$scope.contacts = contacts;
-	console.log($scope.contacts.length);
+	$scope.newcontact = {};
+	
+	$ionicModal.fromTemplateUrl('templates/new-contact.html', {
+	    scope: $scope,
+	    animation: 'slide-in-up'
+	  }).then(function(modal) {
+	    $scope.modal = modal
+	  })  
+
+	  $scope.$on('$destroy', function() {
+	    $scope.modal.remove();
+	  });
+	
+	
+	$scope.newContact = function() {
+		$scope.modal.show();
+	}
+	
+	$scope.saveAndCloseModal = function() {
+		contactsService.createNew($scope.newcontact).then(function(){
+			console.log("Contact saved");
+			contactsService.getContacts().then(function(contacts){
+				console.log("List refreshed");
+				$scope.contacts = contacts;
+			})
+		});
+		$scope.newcontact = {};
+		$scope.modal.hide();
+	}
+	
 })
 
-.controller('contactCtrl', function($scope, contact) {
+.controller('contactCtrl', function($scope, $state, contact) {
+	
+	// prevents stateless view. Todo: handle this better
+	if (!contact) {
+		$state.go("app.contacts", {}, {
+			reload : true
+		});
+	}
+
 	$scope.contact = contact;
 
 });

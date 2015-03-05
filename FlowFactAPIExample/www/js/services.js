@@ -1,8 +1,47 @@
-angular.module('starter.services', []).service('contactsService', function($q, $http, APISERVER, accountService) {
+angular.module('starter.services', []).service('contactsService', function($q, $http, $state, APISERVER, accountService) {
 
 	var contacts = [];
 
 	return {
+		
+		createNew : function(contact) {
+			var transferObject = {};
+			
+			transferObject = {};
+			
+			transferObject.value = contact;
+			
+			console.log(transferObject);
+			
+			var deferred = $q.defer();
+			
+			if (accountService.getAccount().username) {
+
+				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().username + "/contacts");
+
+				console.log(contactsUrl);
+
+				$http({
+					method : "POST",
+					url : contactsUrl,
+					data : contact
+				}).success(function(status) {
+					console.log(status, error);
+					deferred.resolve();
+					
+				}).error(function(status, error) {
+					console.log(status, error);
+					deferred.reject();
+				});
+
+			} else {
+				console.log("not logged in, not fetching contacts");
+				deferred.reject();
+			}
+
+			return deferred.promise;
+			
+		},
 
 		getContacts : function() {
 
@@ -20,22 +59,25 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 				}).success(function(data) {
 					
 					contacts = data.value.contact;
-					console.log(contacts);
+					console.log(data);
 					
 					deferred.resolve(contacts);
 					
 				}).error(function(status, error) {
 					console.log(status, error);
+					deferred.reject();
 				});
 
 			} else {
 				console.log("not logged in, not fetching contacts");
+				deferred.reject();
 			}
 
 			return deferred.promise;
 		},
 
 		getContact : function(contactId) {
+			
 			var contact;
 
 			if (contacts) {
@@ -50,7 +92,7 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 		}
 
 	}
-}).service('accountService', function($q, $http, $state, Base64, APISERVER) {
+}).service('accountService', function($q, $http, Base64, APISERVER) {
 
 	var account = {};
 

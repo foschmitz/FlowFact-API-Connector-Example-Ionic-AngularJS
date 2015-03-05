@@ -24,6 +24,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
+
+.run(function($rootScope, $state){
+
+    $rootScope
+        .$on('$stateChangeError',
+            function(event, toState, toParams, fromState, fromParams){ 
+                console.log("State Change: Error!");
+                $state.go("app.login");
+        });
+
+})
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
