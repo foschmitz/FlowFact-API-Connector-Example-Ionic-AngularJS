@@ -3,18 +3,18 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 	var contacts = [];
 
 	return {
-		
+
 		createNew : function(contact) {
 			var transferObject = {};
-			
+
 			transferObject = {};
-			
+
 			transferObject.value = contact;
-			
+
 			console.log(JSON.stringify(transferObject));
-			
+
 			var deferred = $q.defer();
-			
+
 			if (accountService.getAccount().username) {
 
 				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().id + "/contacts");
@@ -28,7 +28,7 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 				}).success(function(status) {
 					console.log(status);
 					deferred.resolve();
-					
+
 				}).error(function(status) {
 					console.log(status);
 					deferred.reject();
@@ -40,13 +40,13 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 			}
 
 			return deferred.promise;
-			
+
 		},
 
 		getContacts : function() {
 
 			var deferred = $q.defer();
-			
+
 			if (accountService.getAccount().username) {
 
 				var contactsUrl = encodeURI(APISERVER + "/rest/v1.0/customers/" + accountService.getAccount().contractid + "/users/" + accountService.getAccount().id + "/contacts");
@@ -57,12 +57,8 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 					method : "GET",
 					url : contactsUrl
 				}).success(function(data) {
-					
-					contacts = data.value.contact;
-					console.log(data);
-					
-					deferred.resolve(contacts);
-					
+					deferred.resolve(data.value.contactshort);
+
 				}).error(function(status, error) {
 					console.log(status, error);
 					deferred.reject();
@@ -77,7 +73,7 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 		},
 
 		getContact : function(contactId) {
-			
+
 			var contact;
 
 			if (contacts) {
@@ -99,9 +95,9 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 	return {
 
 		login : function(loginData) {
-			
+
 			var deferred = $q.defer();
-			
+
 			console.log('Doing login', loginData);
 
 			$http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode(loginData.contractid + '/' + loginData.username + ':' + loginData.password);
@@ -113,7 +109,7 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 				url : loginUrl
 
 			}).success(function(data) {
-				
+
 				if (data.value && data.value.name) {
 					console.log("----USERDATA----");
 					console.log(data);
@@ -131,7 +127,7 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 				console.log(status, error);
 				alert("Error: Could not login");
 			});
-			
+
 			return deferred.promise;
 
 		},
