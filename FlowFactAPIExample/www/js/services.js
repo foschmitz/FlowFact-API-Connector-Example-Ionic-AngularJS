@@ -57,7 +57,8 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 					method : "GET",
 					url : contactsUrl
 				}).success(function(data) {
-					deferred.resolve(data.value.contactshort);
+					contacts = data.value.contactshort;
+					deferred.resolve(contacts);
 
 				}).error(function(status, error) {
 					console.log(status, error);

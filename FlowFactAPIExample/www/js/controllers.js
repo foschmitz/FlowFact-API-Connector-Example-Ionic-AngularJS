@@ -61,13 +61,6 @@ angular.module('starter.controllers', [])
 
 .controller('contactCtrl', function($scope, $state, contact) {
 
-	// prevents stateless view. Todo: handle this better
-	if (!contact) {
-		$state.go("app.contacts", {}, {
-			reload : true
-		});
-	}
-
 	$scope.contact = contact;
 
 });

@@ -74,6 +74,7 @@ angular.module('starter', [ 'ionic', 'starter.controllers', 'starter.services' ]
 				controller : 'contactCtrl',
 				resolve : {
 					contact : function($stateParams, contactsService) {
+						console.log($stateParams.contactId);
 						return contactsService.getContact($stateParams.contactId)
 					}
 				}
