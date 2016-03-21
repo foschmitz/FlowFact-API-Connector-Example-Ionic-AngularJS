@@ -114,12 +114,10 @@ angular.module('starter.services', []).service('contactsService', function($q, $
 				if (data.value && data.value.name) {
 					console.log("----USERDATA----");
 					console.log(data);
-					if (data.value.name === loginData.username) {
-						account.contractid = loginData.contractid;
-						account.username = loginData.username;
-						account.id = data.value.id;
-						deferred.resolve();
-					}
+					account.contractid = loginData.contractid;
+					account.username = loginData.username;
+					account.id = data.value.id;
+					deferred.resolve();
 				} else {
 					alert("Error: Could not login");
 				}
